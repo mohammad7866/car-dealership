@@ -1,12 +1,20 @@
 import React from 'react';
-import Login from './Components/Login/Login'; // Import the Login component
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './Components/Login/Login';
+import CarExtras from './Components/CarExtras/CarExtras';
 
-function App() {
+import 'C'
+const App = () => {
   return (
-    <div className="App">
-      <Login />
-    </div>
+    <Router>
+      <div className="app">
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/extras" element={<CarExtras />} />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;

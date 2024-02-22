@@ -10,5 +10,6 @@ namespace BMWApi.Data
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<CarExtras> CarExtras { get; set; }
     }
 }
