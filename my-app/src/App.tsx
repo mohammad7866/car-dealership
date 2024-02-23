@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './Components/Login/Login';
 import CarExtras from './Components/CarExtras/CarExtras';
 
-import 'C'
+
 const App = () => {
   return (
     <Router>
