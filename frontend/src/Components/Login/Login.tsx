@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate hook
 import './Login.scss';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate(); // Initialize the useNavigate hook
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,7 +24,8 @@ const Login = () => {
       }
 
       console.log('Login successful!');
-      // Redirect to another page upon successful login
+      // Redirect to the car extras page upon successful login
+      navigate('/extras');
     } catch (error) {
       setError(error instanceof Error ? error.message : 'An unknown error occurred');
     }
@@ -56,7 +58,7 @@ const Login = () => {
         <button type="submit">Login</button>
       </form>
       <p className="error-message">{error}</p>
-      <Link to="/register">Register an account</Link>
+      <Link to="/register">Register an account</Link> {/* Ensure the Link points to the correct route */}
     </div>
   );
 };

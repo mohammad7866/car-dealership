@@ -1,38 +1,31 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Login.scss';
+import './Register.scss';
 
-const Login = () => {
+const Register = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://localhost:7193/api/Auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Invalid credentials');
+      // Validate passwords match
+      if (password !== confirmPassword) {
+        throw new Error('Passwords do not match');
       }
 
-      console.log('Login successful!');
-      // Redirect to another page upon successful login
+      // Your registration logic here
     } catch (error) {
       setError(error instanceof Error ? error.message : 'An unknown error occurred');
     }
   };
 
   return (
-    <div className="login-container">
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
+    <div className="register-container">
+      <h2>Register</h2>
+      <form onSubmit={handleRegister}>
         <div>
           <label htmlFor="username">Username</label>
           <input
@@ -53,12 +46,22 @@ const Login = () => {
             required
           />
         </div>
-        <button type="submit">Login</button>
+        <div>
+          <label htmlFor="confirmPassword">Confirm Password</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit">Register</button>
       </form>
       {error && <p className="error-message">{error}</p>}
-      <Link to="/register">Register an account</Link>
+      <Link to="/">Already have an account? Login</Link>
     </div>
   );
 };
 
-export default Login;
+export default Register;

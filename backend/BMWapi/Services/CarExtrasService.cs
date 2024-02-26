@@ -1,5 +1,8 @@
 ﻿using BMWApi.Data;
 using BMWApi.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BMWApi.Services
 {
@@ -9,7 +12,7 @@ namespace BMWApi.Services
 
         public CarExtrasService(AppDbContext context)
         {
-            _context = context;
+            _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
         // Method to retrieve all car extras
@@ -45,9 +48,29 @@ namespace BMWApi.Services
                 throw new ArgumentException($"CarExtras with ID {id} not found");
             }
 
+            // Update all properties
             existingCarExtras.PanRoof = carExtras.PanRoof;
             existingCarExtras.UpgradedAlloys = carExtras.UpgradedAlloys;
-            // Update other properties as needed
+            existingCarExtras.HeatedSeats = carExtras.HeatedSeats;
+            existingCarExtras.ParkAssist = carExtras.ParkAssist;
+            existingCarExtras.LaneAssist = carExtras.LaneAssist;
+            existingCarExtras.CupHolders = carExtras.CupHolders;
+            existingCarExtras.NavigationSystem = carExtras.NavigationSystem;
+            existingCarExtras.PremiumSoundSystem = carExtras.PremiumSoundSystem;
+            existingCarExtras.WirelessCharging = carExtras.WirelessCharging;
+            existingCarExtras.RemoteStart = carExtras.RemoteStart;
+            existingCarExtras.AdaptiveCruiseControl = carExtras.AdaptiveCruiseControl;
+            existingCarExtras.BlindSpotMonitoring = carExtras.BlindSpotMonitoring;
+            existingCarExtras.KeylessEntry = carExtras.KeylessEntry;
+            existingCarExtras.AutoDimmingMirrors = carExtras.AutoDimmingMirrors;
+            existingCarExtras.PowerLiftgate = carExtras.PowerLiftgate;
+            existingCarExtras.CameraSystem360 = carExtras.CameraSystem360;
+            existingCarExtras.TrafficSignRecognition = carExtras.TrafficSignRecognition;
+            existingCarExtras.DriverAssistancePackage = carExtras.DriverAssistancePackage;
+            existingCarExtras.MemorySeats = carExtras.MemorySeats;
+            existingCarExtras.HeatedSteeringWheel = carExtras.HeatedSteeringWheel;
+            existingCarExtras.VentilatedSeats = carExtras.VentilatedSeats;
+            // Add other properties here
 
             _context.SaveChanges();
         }

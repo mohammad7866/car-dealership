@@ -1,7 +1,8 @@
-﻿
-using BMWApi.Models;
+﻿using BMWApi.Models;
 using BMWApi.Services;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
 
 namespace BMWApi.Controllers
 {
@@ -13,7 +14,7 @@ namespace BMWApi.Controllers
 
         public CarExtrasController(CarExtrasService carExtrasService)
         {
-            _carExtrasService = carExtrasService;
+            _carExtrasService = carExtrasService ?? throw new ArgumentNullException(nameof(carExtrasService));
         }
 
         [HttpGet]
@@ -37,6 +38,11 @@ namespace BMWApi.Controllers
         [HttpPost]
         public IActionResult CreateCarExtras(CarExtras carExtras)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             _carExtrasService.CreateCarExtras(carExtras);
             return CreatedAtAction(nameof(GetCarExtrasById), new { id = carExtras.Id }, carExtras);
         }
@@ -44,6 +50,11 @@ namespace BMWApi.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateCarExtras(int id, CarExtras carExtras)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             try
             {
                 _carExtrasService.UpdateCarExtras(id, carExtras);
@@ -52,6 +63,10 @@ namespace BMWApi.Controllers
             catch (ArgumentException ex)
             {
                 return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
 
@@ -66,6 +81,10 @@ namespace BMWApi.Controllers
             catch (ArgumentException ex)
             {
                 return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
     }
