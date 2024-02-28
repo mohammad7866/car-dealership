@@ -1,0 +1,62 @@
+// HomePage.scss
+
+.home-page {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .page-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+// HomePage.scss
+
+.car-images {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .car-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  
+  .car-image {
+    width: 400px;
+    max-width: 400px; /* Adjust the maximum width */
+    height: 250px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .choose-extras-button,
+  .place-order-button {
+    padding: 10px 20px;
+    max-width: 200px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+  }
+  
+  .choose-extras-button:hover,
+  .place-order-button:hover {
+    background-color: #0056b3;
+  }
+  

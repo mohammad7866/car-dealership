@@ -87,5 +87,19 @@ namespace BMWApi.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
+
+        [HttpPost("calculateTotalCost")]
+        public IActionResult CalculateTotalCost(List<CarExtras> selectedExtras)
+        {
+            try
+            {
+                decimal totalCost = _carExtrasService.CalculateTotalCost(selectedExtras);
+                return Ok(totalCost);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
     }
 }

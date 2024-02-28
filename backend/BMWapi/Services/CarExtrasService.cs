@@ -87,5 +87,37 @@ namespace BMWApi.Services
             _context.CarExtras.Remove(carExtras);
             _context.SaveChanges();
         }
+
+        // Method to calculate total cost based on selected extras
+        public decimal CalculateTotalCost(List<CarExtras> selectedExtras)
+        {
+            decimal totalCost = 0;
+            foreach (var extra in selectedExtras)
+            {
+                if (extra.PanRoof) totalCost += 1500;
+                if (extra.UpgradedAlloys) totalCost += 1200;
+                if (extra.HeatedSeats) totalCost += 800;
+                if (extra.ParkAssist) totalCost += 1000;
+                if (extra.LaneAssist) totalCost += 900;
+                if (extra.CupHolders) totalCost += 50;
+                if (extra.NavigationSystem) totalCost += 1500;
+                if (extra.PremiumSoundSystem) totalCost += 2000;
+                if (extra.WirelessCharging) totalCost += 300;
+                if (extra.RemoteStart) totalCost += 700;
+                if (extra.AdaptiveCruiseControl) totalCost += 1200;
+                if (extra.BlindSpotMonitoring) totalCost += 1000;
+                if (extra.KeylessEntry) totalCost += 600;
+                if (extra.AutoDimmingMirrors) totalCost += 400;
+                if (extra.PowerLiftgate) totalCost += 800;
+                if (extra.CameraSystem360) totalCost += 1500;
+                if (extra.TrafficSignRecognition) totalCost += 1000;
+                if (extra.DriverAssistancePackage) totalCost += 2000;
+                if (extra.MemorySeats) totalCost += 500;
+                if (extra.HeatedSteeringWheel) totalCost += 600;
+                if (extra.VentilatedSeats) totalCost += 900;
+                // Add other properties here
+            }
+            return totalCost;
+        }
     }
 }
