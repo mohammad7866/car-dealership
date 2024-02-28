@@ -28,6 +28,7 @@ namespace BMWApi.Services
         }
 
         // Method to create a new car extra
+        // Method to create a new car extra
         public void CreateCarExtras(CarExtras carExtras)
         {
             if (carExtras == null)
@@ -35,9 +36,34 @@ namespace BMWApi.Services
                 throw new ArgumentNullException(nameof(carExtras));
             }
 
+            // Set prices for selected extras
+            carExtras.PanRoofPrice = carExtras.PanRoof ? 1500 : 0;
+            carExtras.UpgradedAlloysPrice = carExtras.UpgradedAlloys ? 1200 : 0;
+            carExtras.HeatedSeatsPrice = carExtras.HeatedSeats ? 800 : 0;
+            carExtras.ParkAssistPrice = carExtras.ParkAssist ? 1000 : 0;
+            carExtras.LaneAssistPrice = carExtras.LaneAssist ? 900 : 0;
+            carExtras.CupHoldersPrice = carExtras.CupHolders ? 50 : 0;
+            carExtras.NavigationSystemPrice = carExtras.NavigationSystem ? 1500 : 0;
+            carExtras.PremiumSoundSystemPrice = carExtras.PremiumSoundSystem ? 2000 : 0;
+            carExtras.WirelessChargingPrice = carExtras.WirelessCharging ? 300 : 0;
+            carExtras.RemoteStartPrice = carExtras.RemoteStart ? 700 : 0;
+            carExtras.AdaptiveCruiseControlPrice = carExtras.AdaptiveCruiseControl ? 1200 : 0;
+            carExtras.BlindSpotMonitoringPrice = carExtras.BlindSpotMonitoring ? 1000 : 0;
+            carExtras.KeylessEntryPrice = carExtras.KeylessEntry ? 600 : 0;
+            carExtras.AutoDimmingMirrorsPrice = carExtras.AutoDimmingMirrors ? 400 : 0;
+            carExtras.PowerLiftgatePrice = carExtras.PowerLiftgate ? 800 : 0;
+            carExtras.CameraSystem360Price = carExtras.CameraSystem360 ? 1500 : 0;
+            carExtras.TrafficSignRecognitionPrice = carExtras.TrafficSignRecognition ? 1000 : 0;
+            carExtras.DriverAssistancePackagePrice = carExtras.DriverAssistancePackage ? 2000 : 0;
+            carExtras.MemorySeatsPrice = carExtras.MemorySeats ? 500 : 0;
+            carExtras.HeatedSteeringWheelPrice = carExtras.HeatedSteeringWheel ? 600 : 0;
+            carExtras.VentilatedSeatsPrice = carExtras.VentilatedSeats ? 900 : 0;
+
+            // Add the carExtras object to the database
             _context.CarExtras.Add(carExtras);
             _context.SaveChanges();
         }
+
 
         // Method to update an existing car extra
         public void UpdateCarExtras(int id, CarExtras carExtras)
@@ -50,27 +76,48 @@ namespace BMWApi.Services
 
             // Update all properties
             existingCarExtras.PanRoof = carExtras.PanRoof;
+            existingCarExtras.PanRoofPrice = carExtras.PanRoof ? 1500 : 0;
             existingCarExtras.UpgradedAlloys = carExtras.UpgradedAlloys;
+            existingCarExtras.UpgradedAlloysPrice = carExtras.UpgradedAlloys ? 1200 : 0;
             existingCarExtras.HeatedSeats = carExtras.HeatedSeats;
+            existingCarExtras.HeatedSeatsPrice = carExtras.HeatedSeats ? 800 : 0;
             existingCarExtras.ParkAssist = carExtras.ParkAssist;
+            existingCarExtras.ParkAssistPrice = carExtras.ParkAssist ? 1000 : 0;
             existingCarExtras.LaneAssist = carExtras.LaneAssist;
+            existingCarExtras.LaneAssistPrice = carExtras.LaneAssist ? 900 : 0;
             existingCarExtras.CupHolders = carExtras.CupHolders;
+            existingCarExtras.CupHoldersPrice = carExtras.CupHolders ? 50 : 0;
             existingCarExtras.NavigationSystem = carExtras.NavigationSystem;
+            existingCarExtras.NavigationSystemPrice = carExtras.NavigationSystem ? 1500 : 0;
             existingCarExtras.PremiumSoundSystem = carExtras.PremiumSoundSystem;
+            existingCarExtras.PremiumSoundSystemPrice = carExtras.PremiumSoundSystem ? 2000 : 0;
             existingCarExtras.WirelessCharging = carExtras.WirelessCharging;
+            existingCarExtras.WirelessChargingPrice = carExtras.WirelessCharging ? 300 : 0;
             existingCarExtras.RemoteStart = carExtras.RemoteStart;
+            existingCarExtras.RemoteStartPrice = carExtras.RemoteStart ? 700 : 0;
             existingCarExtras.AdaptiveCruiseControl = carExtras.AdaptiveCruiseControl;
+            existingCarExtras.AdaptiveCruiseControlPrice = carExtras.AdaptiveCruiseControl ? 1200 : 0;
             existingCarExtras.BlindSpotMonitoring = carExtras.BlindSpotMonitoring;
+            existingCarExtras.BlindSpotMonitoringPrice = carExtras.BlindSpotMonitoring ? 1000 : 0;
             existingCarExtras.KeylessEntry = carExtras.KeylessEntry;
+            existingCarExtras.KeylessEntryPrice = carExtras.KeylessEntry ? 600 : 0;
             existingCarExtras.AutoDimmingMirrors = carExtras.AutoDimmingMirrors;
+            existingCarExtras.AutoDimmingMirrorsPrice = carExtras.AutoDimmingMirrors ? 400 : 0;
             existingCarExtras.PowerLiftgate = carExtras.PowerLiftgate;
+            existingCarExtras.PowerLiftgatePrice = carExtras.PowerLiftgate ? 800 : 0;
             existingCarExtras.CameraSystem360 = carExtras.CameraSystem360;
+            existingCarExtras.CameraSystem360Price = carExtras.CameraSystem360 ? 1500 : 0;
             existingCarExtras.TrafficSignRecognition = carExtras.TrafficSignRecognition;
+            existingCarExtras.TrafficSignRecognitionPrice = carExtras.TrafficSignRecognition ? 1000 : 0;
             existingCarExtras.DriverAssistancePackage = carExtras.DriverAssistancePackage;
+            existingCarExtras.DriverAssistancePackagePrice = carExtras.DriverAssistancePackage ? 2000 : 0;
             existingCarExtras.MemorySeats = carExtras.MemorySeats;
+            existingCarExtras.MemorySeatsPrice = carExtras.MemorySeats ? 500 : 0;
             existingCarExtras.HeatedSteeringWheel = carExtras.HeatedSteeringWheel;
+            existingCarExtras.HeatedSteeringWheelPrice = carExtras.HeatedSteeringWheel ? 600 : 0;
             existingCarExtras.VentilatedSeats = carExtras.VentilatedSeats;
-            // Add other properties here
+            existingCarExtras.VentilatedSeatsPrice = carExtras.VentilatedSeats ? 900 : 0;
+            // Add other properties and prices here
 
             _context.SaveChanges();
         }
@@ -94,28 +141,28 @@ namespace BMWApi.Services
             decimal totalCost = 0;
             foreach (var extra in selectedExtras)
             {
-                if (extra.PanRoof) totalCost += 1500;
-                if (extra.UpgradedAlloys) totalCost += 1200;
-                if (extra.HeatedSeats) totalCost += 800;
-                if (extra.ParkAssist) totalCost += 1000;
-                if (extra.LaneAssist) totalCost += 900;
-                if (extra.CupHolders) totalCost += 50;
-                if (extra.NavigationSystem) totalCost += 1500;
-                if (extra.PremiumSoundSystem) totalCost += 2000;
-                if (extra.WirelessCharging) totalCost += 300;
-                if (extra.RemoteStart) totalCost += 700;
-                if (extra.AdaptiveCruiseControl) totalCost += 1200;
-                if (extra.BlindSpotMonitoring) totalCost += 1000;
-                if (extra.KeylessEntry) totalCost += 600;
-                if (extra.AutoDimmingMirrors) totalCost += 400;
-                if (extra.PowerLiftgate) totalCost += 800;
-                if (extra.CameraSystem360) totalCost += 1500;
-                if (extra.TrafficSignRecognition) totalCost += 1000;
-                if (extra.DriverAssistancePackage) totalCost += 2000;
-                if (extra.MemorySeats) totalCost += 500;
-                if (extra.HeatedSteeringWheel) totalCost += 600;
-                if (extra.VentilatedSeats) totalCost += 900;
-                // Add other properties here
+                totalCost += extra.PanRoof ? extra.PanRoofPrice : 0;
+                totalCost += extra.UpgradedAlloys ? extra.UpgradedAlloysPrice : 0;
+                totalCost += extra.HeatedSeats ? extra.HeatedSeatsPrice : 0;
+                totalCost += extra.ParkAssist ? extra.ParkAssistPrice : 0;
+                totalCost += extra.LaneAssist ? extra.LaneAssistPrice : 0;
+                totalCost += extra.CupHolders ? extra.CupHoldersPrice : 0;
+                totalCost += extra.NavigationSystem ? extra.NavigationSystemPrice : 0;
+                totalCost += extra.PremiumSoundSystem ? extra.PremiumSoundSystemPrice : 0;
+                totalCost += extra.WirelessCharging ? extra.WirelessChargingPrice : 0;
+                totalCost += extra.RemoteStart ? extra.RemoteStartPrice : 0;
+                totalCost += extra.AdaptiveCruiseControl ? extra.AdaptiveCruiseControlPrice : 0;
+                totalCost += extra.BlindSpotMonitoring ? extra.BlindSpotMonitoringPrice : 0;
+                totalCost += extra.KeylessEntry ? extra.KeylessEntryPrice : 0;
+                totalCost += extra.AutoDimmingMirrors ? extra.AutoDimmingMirrorsPrice : 0;
+                totalCost += extra.PowerLiftgate ? extra.PowerLiftgatePrice : 0;
+                totalCost += extra.CameraSystem360 ? extra.CameraSystem360Price : 0;
+                totalCost += extra.TrafficSignRecognition ? extra.TrafficSignRecognitionPrice : 0;
+                totalCost += extra.DriverAssistancePackage ? extra.DriverAssistancePackagePrice : 0;
+                totalCost += extra.MemorySeats ? extra.MemorySeatsPrice : 0;
+                totalCost += extra.HeatedSteeringWheel ? extra.HeatedSteeringWheelPrice : 0;
+                totalCost += extra.VentilatedSeats ? extra.VentilatedSeatsPrice : 0;
+                // Add other properties and prices here
             }
             return totalCost;
         }
