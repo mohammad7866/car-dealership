@@ -1,27 +1,45 @@
-// CarExtras.scss
-
 .car-extras {
-    padding: 20px;
+  padding: 20px;
   
-    h2 {
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-  
-    .extra-checkbox {
-      margin-bottom: 10px;
-  
-      input[type="checkbox"] {
-        margin-right: 10px;
-      }
-    }
-  
-    button {
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      cursor: pointer;
+  .header-buttons {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+
+    a {
+      margin-right: 10px;
     }
   }
-  
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .car-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    .car-item {
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .extra-checkbox {
+    margin-bottom: 10px;
+
+    input[type="checkbox"] {
+      margin-right: 10px;
+    }
+  }
+
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+}

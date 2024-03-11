@@ -1,95 +1,82 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./OrderPage.scss"; // Import the SCSS file
+import { Link } from "react-router-dom";
+import { FaHome, FaSignOutAlt } from "react-icons/fa";
+import "./OrderPage.scss";
 
-// Define an interface representing the structure of your extra objects
 interface Extra {
   id: number;
-  name: string;
-  adaptiveCruiseControl: boolean;
-  autoDimmingMirrors: boolean;
-  blindSpotMonitoring: boolean;
-  cameraSystem360: boolean;
-  cupHolders: boolean;
-  driverAssistancePackage: boolean;
-  heatedSeats: boolean;
-  heatedSteeringWheel: boolean;
-  keylessEntry: boolean;
-  laneAssist: boolean;
-  memorySeats: boolean;
-  navigationSystem: boolean;
-  panRoof: boolean;
-  parkAssist: boolean;
-  powerLiftgate: boolean;
-  premiumSoundSystem: boolean;
-  remoteStart: boolean;
-  trafficSignRecognition: boolean;
-  upgradedAlloys: boolean;
-  ventilatedSeats: boolean;
-  wirelessCharging: boolean;
+  [key: string]: number | boolean;
 }
 
 const OrderPage = () => {
   const [selectedExtras, setSelectedExtras] = useState<Extra[]>([]);
+  const [totalPrices, setTotalPrices] = useState<number[]>([]);
 
   useEffect(() => {
-    // Fetch selected extras from the API endpoint
     axios
       .get("https://localhost:7193/api/CarExtras")
       .then((response) => {
         setSelectedExtras(response.data);
+        const prices = response.data.map((extra: Extra) => calculateTotalPrice(extra));
+        setTotalPrices(prices);
       })
       .catch((error) => {
         console.error("Error fetching selected extras:", error);
       });
   }, []);
 
-  const handlePlaceOrder = () => {
-    // Handle placing the order (e.g., send data to backend)
-    console.log("Placing order with selected extras:", selectedExtras);
-    // Display confirmation message
-    alert("Your order has been placed successfully!");
+  const calculateTotalPrice = (extra: Extra): number => {
+    let totalPrice = 0;
+    for (const key in extra) {
+      if (key.endsWith("Price")) {
+        const propName = key.replace("Price", "");
+        if (typeof extra[key] === "number" && extra[propName]) {
+          totalPrice += extra[key] as number;
+        }
+      }
+    }
+    return totalPrice;
+  };
+
+  const handlePlaceOrder = (carIndex: number) => {
+    console.log("Placing order for car:", selectedExtras[carIndex]);
+    alert("Your order for car " + selectedExtras[carIndex].id + " has been placed successfully!");
   };
 
   return (
     <div className="OrderPage">
-      <h1>Place Your Order</h1>
-      <div className="extra-list">
-        <h2>Selected Extras</h2>
-        <ul>
-          {selectedExtras.map((extra, index) => (
-            <li key={extra.id}>
-              <div className="extra-item">
-                <span className="extra-name">{extra.name}</span>
-                <span className="extra-property">
-                  {extra.adaptiveCruiseControl && "Adaptive Cruise Control, "}
-                  {extra.autoDimmingMirrors && "Auto-Dimming Mirrors, "}
-                  {extra.blindSpotMonitoring && "Blind Spot Monitoring, "}
-                  {extra.cameraSystem360 && "360 Camera System, "}
-                  {extra.cupHolders && "Cup Holders, "}
-                  {extra.driverAssistancePackage && "Driver Assistance Package, "}
-                  {extra.heatedSeats && "Heated Seats, "}
-                  {extra.heatedSteeringWheel && "Heated Steering Wheel, "}
-                  {extra.keylessEntry && "Keyless Entry, "}
-                  {extra.laneAssist && "Lane Assist, "}
-                  {extra.memorySeats && "Memory Seats, "}
-                  {extra.navigationSystem && "Navigation System, "}
-                  {extra.panRoof && "Panoramic Roof, "}
-                  {extra.parkAssist && "Park Assist, "}
-                  {extra.powerLiftgate && "Power Liftgate, "}
-                  {extra.premiumSoundSystem && "Premium Sound System, "}
-                  {extra.remoteStart && "Remote Start, "}
-                  {extra.trafficSignRecognition && "Traffic Sign Recognition, "}
-                  {extra.upgradedAlloys && "Upgraded Alloys, "}
-                  {extra.ventilatedSeats && "Ventilated Seats, "}
-                  {extra.wirelessCharging && "Wireless Charging, "}
-                </span>
-              </div>
-            </li>
-          ))}
-        </ul>
+      <div className="header-buttons">
+        <Link to="/home"><FaHome className="extra-icon" /></Link>
+        <Link to="/"><FaSignOutAlt className="extra-icon" /></Link>
       </div>
-      <button onClick={handlePlaceOrder}>Place Order</button>
+      <h1>Place Your Orders</h1>
+      {selectedExtras.map((extra, index) => (
+        <div key={extra.id} className="car-container">
+          <h2>Car {extra.id}</h2>
+          <div className="extra-list">
+            <ul>
+              {Object.keys(extra).map((key) => {
+                if (typeof key === "string" && key.endsWith("Price") && typeof extra[key] === "number") {
+                  const propName = key.replace("Price", "");
+                  if (extra[propName]) {
+                    return (
+                      <li key={key}>
+                        <span>{propName}</span>
+                        <span> £{extra[key]}</span>
+                      </li>
+                    );
+                  }
+                }
+                return null;
+              })}
+            </ul>
+            <div className="total-price">Total Price: £{totalPrices[index]}</div>
+            <button onClick={() => handlePlaceOrder(index)}>Place Order</button>
+            <Link to="/extras"><button>Change Extras</button></Link>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

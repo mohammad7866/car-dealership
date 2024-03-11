@@ -13,7 +13,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<CarExtrasService>();
 
-
 var app = builder.Build();
 
 // Enable CORS

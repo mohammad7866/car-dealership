@@ -11,9 +11,9 @@ const App = () => {
     <Router>
       <div className="app">
         <Routes>
-          <Route path="/" element={<HomePage />} /> {/* Set the home page route */}
-          <Route path="/login" element={<Login />} /> {/* Assuming Login component is for login page */}
+          <Route path="/" element={<Login />} /> {/* Assuming Login component is for login page */}
           <Route path="/register" element={<Register />} />
+          <Route path="/home" element={<HomePage />} /> {/* Set the home page route */}
           <Route path="/extras" element={<CarExtras />} />
           <Route path="/order" element={<OrderPage />} />
         </Routes>

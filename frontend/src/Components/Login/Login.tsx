@@ -25,7 +25,7 @@ const Login = () => {
 
       console.log('Login successful!');
       // Redirect to the car extras page upon successful login
-      navigate('/extras');
+      navigate('/home');
     } catch (error) {
       setError(error instanceof Error ? error.message : 'An unknown error occurred');
     }
