@@ -14,35 +14,38 @@ const OrderPage = () => {
   const [totalPrices, setTotalPrices] = useState<number[]>([]);
 
   useEffect(() => {
-    axios
-      .get("https://localhost:7193/api/CarExtras")
-      .then((response) => {
-        setSelectedExtras(response.data);
-        const prices = response.data.map((extra: Extra) => calculateTotalPrice(extra));
-        setTotalPrices(prices);
-      })
-      .catch((error) => {
-        console.error("Error fetching selected extras:", error);
-      });
+    fetchCarExtras();
   }, []);
 
+  const fetchCarExtras = () => {
+    axios.get("https://localhost:7193/api/CarExtras")
+      .then(({ data }) => {
+        setSelectedExtras(data);
+        const prices = data.map(calculateTotalPrice);
+        setTotalPrices(prices);
+      })
+  };
+
   const calculateTotalPrice = (extra: Extra): number => {
-    let totalPrice = 0;
-    for (const key in extra) {
-      if (key.endsWith("Price")) {
-        const propName = key.replace("Price", "");
-        if (typeof extra[key] === "number" && extra[propName]) {
-          totalPrice += extra[key] as number;
-        }
-      }
-    }
-    return totalPrice;
+    return Object.keys(extra)
+      .filter(key => key.endsWith("Price") && typeof extra[key] === "number" && extra[key])
+      .reduce((total, key) => total + (extra[key] as number), 0);
   };
 
   const handlePlaceOrder = (carIndex: number) => {
-    console.log("Placing order for car:", selectedExtras[carIndex]);
-    alert("Your order for car " + selectedExtras[carIndex].id + " has been placed successfully!");
+    alert(`Your order for car ${selectedExtras[carIndex].id} has been placed successfully!`);
   };
+
+  const handleDeleteCar = (carId: number) => {
+    axios.delete(`https://localhost:7193/api/CarExtras/${carId}`)
+      .then(() => {
+        setSelectedExtras(selectedExtras.filter(extra => extra.id !== carId));
+      })
+  };
+
+  const createButton = (label: string, onClick: () => void) => (
+    <button onClick={onClick} className="button">{label}</button>
+  );
 
   return (
     <div className="OrderPage">
@@ -56,24 +59,23 @@ const OrderPage = () => {
           <h2>Car {extra.id}</h2>
           <div className="extra-list">
             <ul>
-              {Object.keys(extra).map((key) => {
-                if (typeof key === "string" && key.endsWith("Price") && typeof extra[key] === "number") {
+              {Object.entries(extra).map(([key, value]) => {
+                if (key.endsWith("Price") && typeof value === "number" && value) {
                   const propName = key.replace("Price", "");
-                  if (extra[propName]) {
-                    return (
-                      <li key={key}>
-                        <span>{propName}</span>
-                        <span> £{extra[key]}</span>
-                      </li>
-                    );
-                  }
+                  return (
+                    <li key={key}>
+                      <span>{propName}</span>
+                      <span> £{value}</span>
+                    </li>
+                  );
                 }
                 return null;
               })}
             </ul>
             <div className="total-price">Total Price: £{totalPrices[index]}</div>
-            <button onClick={() => handlePlaceOrder(index)}>Place Order</button>
-            <Link to="/extras"><button>Change Extras</button></Link>
+            {createButton("Place Order", () => handlePlaceOrder(index))}
+            <Link to="/extras">{createButton("Change Extras", () => {})}</Link>
+            {createButton("Delete Car", () => handleDeleteCar(extra.id))}
           </div>
         </div>
       ))}

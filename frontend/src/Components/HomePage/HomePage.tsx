@@ -16,8 +16,12 @@ const HomePage = () => {
             className="car-image"
           />
           <div className="button-container">
-            <button className="choose-extras-button">Choose Extras</button>
-            <button className="place-order-button">Place Order</button>
+            <Link to={"/extras"}>
+              <button className="choose-extras-button">Choose Extras</button>
+            </Link>
+            <Link to={"/order"}>
+              <button className="place-order-button">Place Order</button>
+            </Link>
           </div>
         </div>
         <div className="car-container">
@@ -27,8 +31,12 @@ const HomePage = () => {
             className="car-image"
           />
           <div className="button-container">
-            <button className="choose-extras-button">Choose Extras</button>
-            <button className="place-order-button">Place Order</button>
+            <Link to={"/extras"}>
+              <button className="choose-extras-button">Choose Extras</button>
+            </Link>
+            <Link to={"/order"}>
+              <button className="place-order-button">Place Order</button>
+            </Link>
           </div>
         </div>
         <div className="car-container">
@@ -38,8 +46,12 @@ const HomePage = () => {
             className="car-image"
           />
           <div className="button-container">
-            <Link to={"/extras"}><button className="choose-extras-button">Choose Extras</button></Link>
-            <Link to={"/order"}><button className="place-order-button">Place Order</button></Link>
+            <Link to={"/extras"}>
+              <button className="choose-extras-button">Choose Extras</button>
+            </Link>
+            <Link to={"/order"}>
+              <button className="place-order-button">Place Order</button>
+            </Link>
             {/* Ensure the Link points to the correct route */}
           </div>
         </div>
