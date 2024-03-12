@@ -1,9 +1,11 @@
-﻿namespace BMWApi.Models
-{
-    public class LoginModel
-    {
-        public required string Username { get; set; }
-        public required string Password { get; set; }
-    }
-}
+﻿using System.ComponentModel.DataAnnotations;
+namespace BMWApi.Models;
 
+public class LoginModel
+{
+    [Required]
+    public string Username { get; set; }
+
+    [Required]
+    public string Password { get; set; }
+}
