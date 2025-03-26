@@ -18,6 +18,9 @@ const Register = () => {
   if (password !== confirmPassword) {
   throw new Error('Passwords do not match');
   }
+    if (password.length < 8) {
+    throw new Error('Passwords must be at least 8 characters long')
+  }
   
     await axios.post('https://localhost:7193/api/Auth/register', {
       username,

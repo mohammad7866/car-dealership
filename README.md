@@ -3,39 +3,31 @@
 ## Contents
 
 1. [Solution Overview](#solution-overview)
-    1 [Project Aim & Objectives](#project-aim--objectives)
-2. [Feature Overview](#feature-overview)
+    - [Project Aim & Objectives](#project-aim--objectives)
+1. [Feature Overview](#feature-overview)
     1.[Secure Authentication](#secure-authentication)
-    2.[Detailed Car Information](#detailed-car-information)
-    3.[Customization Options](#customization-options)
-    4.[Real-Time Order Processing](#real-time-order-processing)
-3. [Enterprise Considerations](#enterprise-considerations)
+    1.[Detailed Car Information](#detailed-car-information)
+    1.[Customization Options](#customization-options)
+    1.[Real-Time Order Processing](#real-time-order-processing)
+1. [Enterprise Considerations](#enterprise-considerations)
     1.[Performance](#performance)
-    2.[Scalability](#scalability)
-    3.[Robustness](#robustness)
-    4.[Deployment](#deployment)
-4. [Project prerequisites](#project-prerequisites)
-5. [Project Setup Guide](#project-setup-guide)
-    1. [Windows Setup](#windows-setup)
-    2. [Microsoft Azure SQL](#microsoft-azure-sql)
-    3. [Node.js](#nodejs)
-    4. [C# and .NET SDK](#c-and-net-sdk)
-    5. [Mac Setup](#mac-setup)
-    6. [Homebrew](#homebrew)
-    7. [Node.js](#nodejs-mac)
-    8. [.NET SDK (Optional)](#net-sdk-optional)
-6. [Cloning Instructions](#cloning-instructions)
+    1.[Scalability](#scalability)
+    1.[Robustness](#robustness)
+    1.[Deployment](#deployment)
+1. [Project prerequisites](#project-prerequisites)
+1. [Cloning Instructions](#cloning-instructions)
     1. [Setting up SSH Keys](#setting-up-ssh-keys)
-    2. [Using SSH](#using-ssh)
-    3. [Using HTTPS](#using-https)
-7. [Frontend](frontend/README.md)
+    1. [Using SSH](#using-ssh)
+    1. [Using HTTPS](#using-https)
+1. [Frontend](frontend/README.md)
         1. [Running the project](frontend/README.md#running-the-project)
-8. [Backend/Middleware](backend/README.md)
+        2. [Deployment](frontend/README.md#deployment)
+1. [Backend](backend/README.md)
         1. [Set up database](backend/README.md#set-up-database)
-        2. [Applying migrations to the Database](backend/README.md#applying-migrations-to-the-database)
-        3. [Running the API](backend/README.md#running-the-api)
-        4. [Querying the API](backend/README.md#querying-the-api)
-        5. [Running backend tests](backend/README.md#running-backend-tests)
+        1. [Applying migrations to the Database](backend/README.md#applying-migrations-to-the-database)
+        1. [Running the API](backend/README.md#running-the-api)
+        1. [Querying the API](backend/README.md#querying-the-api)
+        1. [Running backend tests](backend/README.md#running-backend-tests)
      
 ## Solution Overview
 
@@ -61,9 +53,8 @@ The primary goal of the BMW Customization App is to provide users with a compreh
 **Purpose**: Secure authentication ensures that user data is protected and that only authorized individuals can access their accounts and perform transactions within the app.
 
 - **Code Location**: 
-  - Frontend: `frontend/src/components/`, `frontend/src/components/Register.js`
-  - Backend: `backend/Controllers/AuthController.cs`,backend/Models/AuthController.cs
-  - Middleware: `backend/Services/AuthService.cs`
+  - Frontend: `frontend/src/components/Login.js`, `frontend/src/components/Register.js`
+  - Backend: `backend/Controllers/AuthController.cs`, `backend/Services/AuthService.cs`
 
 - **Relevant Endpoints**:
   - `POST /api/Auth/register` - Handles user registration.
@@ -77,7 +68,7 @@ The primary goal of the BMW Customization App is to provide users with a compreh
 **Purpose**: Provide users with exhaustive details about BMW models M3, M4, and M5, including specifications, pricing, and visual content to support purchase decisions.
 
 - **Code Location**: 
-  - Frontend: `frontend/src/components/BMWM3.tsx`, `frontend/src/components/BMWM4.tsx`, `frontend/src/components/BMWM5.tsx`
+  - Frontend: `frontend/src/components/BMWM3.js`, `frontend/src/components/BMWM4.js`, `frontend/src/components/BMWM5.js`
 
 - **Description**: 
   - Each component displays model-specific data, including images and a summary of specifications.
@@ -87,8 +78,8 @@ The primary goal of the BMW Customization App is to provide users with a compreh
 **Purpose**: Allow users to personalize their vehicle orders with additional extras, enhancing user satisfaction by tailoring features to meet individual needs.
 
 - **Code Location**: 
-  - Frontend: `frontend/src/components/CarExtras.tsx`
-  - Backend: `backend/Controllers/CarExtrasController.tsx`
+  - Frontend: `frontend/src/components/CarExtras.js`
+  - Backend: `backend/Controllers/CarExtrasController.cs`
 
 - **Relevant Endpoints**:
   - `GET /api/CarExtras` - Retrieves available customization extras.
@@ -98,8 +89,8 @@ The primary goal of the BMW Customization App is to provide users with a compreh
 **Purpose**: Provide immediate feedback and status updates during order placement, keeping users informed and enhancing the transactional experience.
 
 - **Code Location**:
-  - Frontend: `frontend/src/components/OrderPage.tsx`
-  - Backend: `backend/Controllers/OrderController.tsx`
+  - Frontend: `frontend/src/components/OrderPage.js`
+  - Backend: `backend/Controllers/OrderController.cs`
 
 - **Relevant Endpoints**:
   - `POST /api/Orders/place` - Processes new orders.
@@ -131,70 +122,6 @@ C#                      |
 Homebrew is an open-source package manager for macOS, helping you install and update developer tools such as Node.
 
 If you receive an error message that GTK is missing you will need to [install](https://www.gtk.org/docs/installations/windows) it.
-# Project Setup Guide
-
-This guide provides step-by-step instructions for setting up the development environment on both Windows and Mac. Follow the instructions for your operating system to install necessary tools.
-
-## Windows Setup
-
-### Microsoft Azure SQL
-See the backend ReadMe which can be found [here](backend/README.md#set-up-database)
-
-### Node.js
-1. **Download the Installer**
-   - Visit the [Node.js official website](https://nodejs.org/) and choose the Windows Installer.
-
-2. **Install Node.js**
-   - Run the downloaded installer.
-   - Follow the steps in the setup wizard, ensuring to add Node.js to your `PATH`.
-   
-3. **Verify Installation**
-   - Open Command Prompt.
-   - Run `node -v` and `npm -v` to verify installation.
-
-### C# and .NET SDK
-1. **Install Visual Studio**
-   - Download Visual Studio from [here](https://visualstudio.microsoft.com/).
-   - Select `.NET desktop development` during installation.
-
-2. **Install .NET SDK**
-   - Download from [.NET SDK download page](https://dotnet.microsoft.com/en-us/download/dotnet).
-   - Install and follow the prompts.
-
-3. **Verify .NET SDK Installation**
-   - Run `dotnet --version` in Command Prompt.
-
-## Mac Setup
-
-### Homebrew
-1. **Install Homebrew**
-   - Open Terminal.
-   - Run:
-     ```bash
-     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-     ```
-
-2. **Verify Homebrew Installation**
-   - Run `brew --version`.
-
-### Node.js
-1. **Install Node.js via Homebrew**
-   - Run `brew install node` in Terminal.
-
-2. **Verify Installation**
-   - Run `node -v` and `npm -v`.
-
-### .NET SDK (Optional)
-1. **Install .NET SDK via Homebrew**
-   - Run `brew install --cask dotnet-sdk`.
-
-2. **Verify .NET SDK Installation**
-   - Run `dotnet --version`.
-
-## Additional Notes
-
-- Ensure all installations are done with the necessary system permissions.
-- If you encounter errors, refer to the tool's official documentation or support forums for troubleshooting tips.
 
 ## Enterprise Considerations
 
@@ -260,23 +187,3 @@ For setup, please see the [frontend](src/frontend/README.md) and [backend](src/b
 - The repository will be cloned to your local machine.
 
 Then once cloned please see the [frontend](src/frontend/README.md) and [backend](src/backend/README.md) READMEs, which explain how to run the project locally, and the steps that should be taken to use it for development of a new asset.
-console.log("Project Setup Guide Loaded");
-console.log("Windows Setup Loaded");
-console.log("Microsoft Azure SQL Loaded");
-console.log("Node.js Loaded");
-console.log("C# and .NET SDK Loaded");
-console.log("Mac Setup Loaded");
-console.log("Homebrew Loaded");
-console.log("Node.js Loaded");
-console.log(".NET SDK (Optional) Loaded");
-console.log("Additional Notes Loaded");
-console.log("Enterprise Considerations Loaded");
-console.log("Performance Loaded");
-console.log("Scalability Loaded");
-console.log("Robustness Loaded");
-console.log("Security Loaded");
-console.log("Deployment Loaded");
-console.log("Cloning instructions Loaded");
-console.log("Setting up SSH Keys Loaded");
-console.log("Using SSH Loaded");
-console.log("Using HTTPS Loaded");
