@@ -53,7 +53,7 @@ The primary goal of the BMW Customization App is to provide users with a compreh
 **Purpose**: Secure authentication ensures that user data is protected and that only authorized individuals can access their accounts and perform transactions within the app.
 
 - **Code Location**: 
-  - Frontend: `frontend/src/components/Login.js`, `frontend/src/components/Register.js`
+  - Frontend: `frontend/src/components/Login.tsx`, `frontend/src/components/Register.tsx`
   - Backend: `backend/Controllers/AuthController.cs`, `backend/Services/AuthService.cs`
 
 - **Relevant Endpoints**:
@@ -68,7 +68,7 @@ The primary goal of the BMW Customization App is to provide users with a compreh
 **Purpose**: Provide users with exhaustive details about BMW models M3, M4, and M5, including specifications, pricing, and visual content to support purchase decisions.
 
 - **Code Location**: 
-  - Frontend: `frontend/src/components/BMWM3.js`, `frontend/src/components/BMWM4.js`, `frontend/src/components/BMWM5.js`
+  - Frontend: `frontend/src/components/BMWM3.tsx`, `frontend/src/components/BMWM4.tsx`, `frontend/src/components/BMWM5.tsx`
 
 - **Description**: 
   - Each component displays model-specific data, including images and a summary of specifications.
@@ -78,7 +78,7 @@ The primary goal of the BMW Customization App is to provide users with a compreh
 **Purpose**: Allow users to personalize their vehicle orders with additional extras, enhancing user satisfaction by tailoring features to meet individual needs.
 
 - **Code Location**: 
-  - Frontend: `frontend/src/components/CarExtras.js`
+  - Frontend: `frontend/src/components/CarExtras.tsx`
   - Backend: `backend/Controllers/CarExtrasController.cs`
 
 - **Relevant Endpoints**:
@@ -89,7 +89,7 @@ The primary goal of the BMW Customization App is to provide users with a compreh
 **Purpose**: Provide immediate feedback and status updates during order placement, keeping users informed and enhancing the transactional experience.
 
 - **Code Location**:
-  - Frontend: `frontend/src/components/OrderPage.js`
+  - Frontend: `frontend/src/components/OrderPage.tsx`
   - Backend: `backend/Controllers/OrderController.cs`
 
 - **Relevant Endpoints**:
@@ -112,16 +112,48 @@ The primary goal of the BMW Customization App is to provide users with a compreh
 
 ### Project prerequisites:
 
-Windows                 | Mac 
-------------------------|------------------------
-Microsoft Azure SQL     | [Homebrew](https://brew.sh/)
-Node.js                 | Node.js                  |
-C#                      |
-.NET SDK                | 
+# Project Prerequisites Setup Guide
 
-Homebrew is an open-source package manager for macOS, helping you install and update developer tools such as Node.
+This guide will walk you through the installation of the necessary prerequisites for both **Windows** and **Mac** environments.
 
-If you receive an error message that GTK is missing you will need to [install](https://www.gtk.org/docs/installations/windows) it.
+## Prerequisites
+
+### For Windows
+
+| Prerequisite          | Description                                               | Installation Instructions                                 |
+|-----------------------|-----------------------------------------------------------|-----------------------------------------------------------|
+| **Microsoft Azure SQL** | Microsoft Azure SQL Database for storing and querying data | 1. Visit the official [Microsoft Azure SQL page](https://azure.microsoft.com/en-us/services/sql-database/). <br> 2. Create an Azure account or sign in if you already have one. <br> 3. Follow the instructions to create a SQL Database instance. |
+| **Node.js**            | JavaScript runtime environment for building and running server-side applications | 1. Go to the official [Node.js download page](https://nodejs.org/). <br> 2. Download the LTS version for Windows. <br> 3. Run the installer and follow the instructions. |
+| **C#**                 | C# programming language for application development         | 1. Download and install Visual Studio from the [official website](https://visualstudio.microsoft.com/). <br> 2. During installation, ensure you select the ".NET desktop development" workload for C# support. |
+| **.NET SDK**           | Software development kit to develop .NET applications       | 1. Go to the official [.NET SDK download page](https://dotnet.microsoft.com/download/dotnet). <br> 2. Download the latest stable version of the SDK. <br> 3. Run the installer and follow the prompts. |
+
+---
+
+### For Mac
+
+| Prerequisite          | Description                                               | Installation Instructions                                 |
+|-----------------------|-----------------------------------------------------------|-----------------------------------------------------------|
+| **Homebrew**           | Package manager for macOS to install various software packages | 1. Open the Terminal application. <br> 2. Run the following command to install Homebrew: <br> `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"` <br> 3. Follow the instructions in Terminal to complete the installation. |
+| **Node.js**            | JavaScript runtime environment for building and running server-side applications | 1. Open the Terminal application. <br> 2. Run the following command to install Node.js via Homebrew: <br> `brew install node` <br> 3. Verify the installation by running `node -v` in Terminal. |
+| **Node.js** (alternative method) | If you prefer not to use Homebrew, you can install Node.js from the official site: | 1. Go to the official [Node.js download page](https://nodejs.org/). <br> 2. Download the LTS version for macOS. <br> 3. Run the installer and follow the instructions. |
+| **C#**                 | C# programming language for application development         | 1. Install Visual Studio for Mac by downloading it from the [official site](https://visualstudio.microsoft.com/vs/mac/). <br> 2. Follow the instructions to install Visual Studio. |
+| **.NET SDK**           | Software development kit to develop .NET applications       | 1. Open Terminal. <br> 2. Install .NET SDK via Homebrew by running the following command: <br> `brew install --cask dotnet-sdk` <br> 3. Verify installation by running `dotnet --version`. |
+
+---
+
+## Verification Steps
+
+After completing the installation, you can verify that the prerequisites have been installed correctly:
+
+- **Microsoft Azure SQL**: Verify the connection to your Azure SQL database by using a tool like SQL Server Management Studio (SSMS) or Azure Data Studio.
+- **Node.js**: Open the terminal (Windows Command Prompt or macOS Terminal) and run `node -v` to check the Node.js version.
+- **C#**: Open Visual Studio (Windows) or Visual Studio for Mac and create a new C# project to confirm C# support.
+- **.NET SDK**: Run `dotnet --version` in your terminal (Windows or macOS) to ensure the .NET SDK is installed correctly.
+
+---
+
+Now you’re ready to begin working on the project with all necessary prerequisites installed!
+
 
 ## Enterprise Considerations
 
