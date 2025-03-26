@@ -85,3 +85,6 @@ Once you have the backend API up and running, you can explore its functionality 
 ### Running backend tests
 
 1. To run all backend tests (including Unit Tests and Integration Tests), simply run the command `dotnet test` in the `src/backend` folder.
+
+### Deployment
+The backend has been deployed using microsoft azure as render does not deploy dotnet applications. 
