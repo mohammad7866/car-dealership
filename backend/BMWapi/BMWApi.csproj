@@ -1,36 +1,48 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <InvariantGlobalization>false</InvariantGlobalization>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<InvariantGlobalization>false</InvariantGlobalization>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.3" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.2">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.2" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
-    <PackageReference Include="Moq" Version="4.20.70" />
-    <PackageReference Include="MSTest.TestFramework" Version="3.2.2" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="NPOI" Version="2.6.2" />
-    <PackageReference Include="NUnit" Version="4.1.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
-    <PackageReference Include="xunit" Version="2.7.0" />
-    <PackageReference Include="xunit.assert" Version="2.7.0" />
-    <PackageReference Include="xunit.extensibility.core" Version="2.7.0" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.7">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.3" />
 
-  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="Data Source=(localdb)\LOCALDB#3C7D6AA7;Initial Catalog=YourDatabaseName;Integrated Security=True;" /></VisualStudio></ProjectExtensions>
+		<!-- Ensure all Entity Framework Core packages are at version 9.0.3 -->
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.3" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.3">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.3" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.3">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+		<PackageReference Include="Moq" Version="4.20.70" />
+		<PackageReference Include="MSTest.TestFramework" Version="3.2.2" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="NPOI" Version="2.6.2" />
+		<PackageReference Include="NUnit" Version="4.1.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+		<PackageReference Include="xunit" Version="2.7.0" />
+		<PackageReference Include="xunit.assert" Version="2.7.0" />
+		<PackageReference Include="xunit.extensibility.core" Version="2.7.0" />
+		<PackageReference Include="xunit.runner.visualstudio" Version="2.5.7">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ProjectExtensions>
+		<VisualStudio>
+			<UserProperties appsettings_1json__JsonSchema="Data Source=(localdb)\LOCALDB#3C7D6AA7;Initial Catalog=YourDatabaseName;Integrated Security=True;" />
+		</VisualStudio>
+	</ProjectExtensions>
 
 </Project>

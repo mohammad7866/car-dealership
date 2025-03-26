@@ -14,7 +14,7 @@ namespace BMWApi.Tests.Controllers
         public void GetAllCarExtras_ReturnsOk()
         {
             // Arrange
-            var mockService = new Mock<ICarExtrasService>();
+            var mockService = new Mock<CarExtrasService>();
             mockService.Setup(service => service.GetAllCarExtras())
                        .Returns(new List<CarExtras>());
 

@@ -22,7 +22,7 @@ describe('HomePage', () => {
     );
 
     const carImages = screen.getAllByAltText(/BMW/);
-    expect(carImages.length).toBe(3); // Assuming there are two car images
+    expect(carImages.length).toBe(3); 
 
     // Example: Test if the first car image is rendered
     expect(carImages[0]).toBeInTheDocument();

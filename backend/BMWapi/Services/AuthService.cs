@@ -1,7 +1,7 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using BMWApi.Data;
 using BMWApi.Models;
+using BCrypt.Net; // Ensure this is included
 
 namespace BMWApi.Services
 {
@@ -22,11 +22,14 @@ namespace BMWApi.Services
                 return false; // Username is taken
             }
 
+            // Hash the password before storing it
+            var hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+
             // Create new user
             var user = new User
             {
                 Username = username,
-                Password = password // Note: You should hash the password before saving it
+                PasswordHash = hashedPassword
             };
 
             _dbContext.Users.Add(user);
@@ -39,7 +42,7 @@ namespace BMWApi.Services
             var user = _dbContext.Users.FirstOrDefault(u => u.Username == username);
 
             // User not found or password doesn't match
-            if (user == null || user.Password != password)
+            if (user == null || !BCrypt.Net.BCrypt.Verify(password, user.PasswordHash))
             {
                 return false;
             }

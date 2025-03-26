@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BMWApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b03bde4eab53a72b1c5ed4f483660a86fb598768")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+40c324e74e4db726fb7a13f9b1e33cf9448cc460")]
 [assembly: System.Reflection.AssemblyProductAttribute("BMWApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BMWApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

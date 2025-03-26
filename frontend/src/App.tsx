@@ -5,6 +5,11 @@ import CarExtras from './Components/CarExtras/CarExtras';
 import Register from './Components/Register/Register';
 import HomePage from './Components/HomePage/HomePage'; // Import the new home page component
 import OrderPage from './Components/CarOrder/OrderPage';
+import M3Information from './Components/CarInformation/M3Information';
+import M4Information from './Components/CarInformation/M4Information';
+import M5Information from './Components/CarInformation/M5Information';
+
+
 
 const App = () => {
   return (
@@ -16,6 +21,11 @@ const App = () => {
           <Route path="/home" element={<HomePage />} /> {/* Set the home page route */}
           <Route path="/extras" element={<CarExtras />} />
           <Route path="/order" element={<OrderPage />} />
+          <Route path="/M3-information" element={<M3Information />} />
+          <Route path="/M4-information" element={<M4Information />} />
+          <Route path="/M5-information" element={<M5Information />} />
+
+
         </Routes>
       </div>
     </Router>
