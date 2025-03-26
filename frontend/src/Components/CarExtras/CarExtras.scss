@@ -1,6 +1,13 @@
+@import '../variables.scss';
+
 .car-extras {
   padding: 20px;
-  
+  background-color: $background-light;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px $shadow-color;
+  font-family: $font-family;
+  color: $text-color;
+
   .header-buttons {
     display: flex;
     justify-content: flex-start;
@@ -8,21 +15,31 @@
 
     a {
       margin-right: 10px;
+      font-size: 18px;
     }
   }
 
   h2 {
     font-size: 24px;
     margin-bottom: 20px;
+    color: $primary-color;
   }
 
   .car-list {
     display: flex;
     flex-wrap: wrap;
+    gap: 20px;
 
     .car-item {
-      margin-right: 20px;
-      margin-bottom: 20px;
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px $shadow-color;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
     }
   }
 
@@ -34,12 +51,7 @@
     }
   }
 
-  button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    margin-right: 10px;
+  .button {
+    @extend .button-common;
   }
 }

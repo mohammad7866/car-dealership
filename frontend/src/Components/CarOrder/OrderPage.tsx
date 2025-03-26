@@ -12,6 +12,8 @@ interface Extra {
 const OrderPage = () => {
   const [selectedExtras, setSelectedExtras] = useState<Extra[]>([]);
   const [totalPrices, setTotalPrices] = useState<number[]>([]);
+  const [showPopup, setShowPopup] = useState<boolean>(false);
+  const [currentCar, setCurrentCar] = useState<Extra | null>(null);
 
   useEffect(() => {
     fetchCarExtras();
@@ -23,7 +25,7 @@ const OrderPage = () => {
         setSelectedExtras(data);
         const prices = data.map(calculateTotalPrice);
         setTotalPrices(prices);
-      })
+      });
   };
 
   const calculateTotalPrice = (extra: Extra): number => {
@@ -33,14 +35,16 @@ const OrderPage = () => {
   };
 
   const handlePlaceOrder = (carIndex: number) => {
-    alert(`Your order for car ${selectedExtras[carIndex].id} has been placed successfully!`);
+    setCurrentCar(selectedExtras[carIndex]);
+    setShowPopup(true);
   };
 
   const handleDeleteCar = (carId: number) => {
     axios.delete(`https://localhost:7193/api/CarExtras/${carId}`)
       .then(() => {
         setSelectedExtras(selectedExtras.filter(extra => extra.id !== carId));
-      })
+        setShowPopup(false); // Close modal after deletion
+      });
   };
 
   const createButton = (label: string, onClick: () => void) => (
@@ -79,6 +83,15 @@ const OrderPage = () => {
           </div>
         </div>
       ))}
+      {showPopup && currentCar && (
+        <div className="popup">
+          <div className="popup-content">
+            <h2>Congratulations!</h2>
+            <p>Your customised vehicle has been ordered.</p>
+            <button onClick={() => handleDeleteCar(currentCar.id)}>OK</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

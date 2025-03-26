@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "v9R3G96XHHuGkjzTxpbOEmiWVaRCYfK8UMpd18VQQ/U=",
+  "Hash": "M0vAR7P6h/VzzMJSoSsk96yIo927V5iOGW67ZntBfU0=",
   "Source": "BMWApi",
   "BasePath": "_content/BMWApi",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

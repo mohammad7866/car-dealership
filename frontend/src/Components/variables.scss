@@ -1,0 +1,43 @@
+// variables.scss
+
+// Define your common variables
+$primary-color: #007bff;
+$secondary-color: #0056b3;
+$background-light: #f9f9f9;
+$font-family: Arial, sans-serif;
+$text-color: #333;
+$shadow-color: rgba(0, 0, 0, 0.1);
+
+// Define common styles
+.button-common {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #fff;
+  background-color: $primary-color;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    background-color: $secondary-color;
+  }
+}
+
+.header-buttons-common {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+
+  a {
+    font-size: 18px;
+    color: $primary-color;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

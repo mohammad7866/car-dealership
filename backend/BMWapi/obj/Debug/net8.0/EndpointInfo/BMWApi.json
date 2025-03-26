@@ -1,0 +1,479 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "BMWApi",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Auth/register": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/CarExtras": {
+      "get": {
+        "tags": [
+          "CarExtras"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CarExtras"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CarExtras"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CarExtras"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "CarExtras"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarExtras"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarExtras"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarExtras"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/CarExtras/{id}": {
+      "get": {
+        "tags": [
+          "CarExtras"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarExtras"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarExtras"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarExtras"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "CarExtras"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarExtras"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarExtras"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarExtras"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "CarExtras"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/CarExtras/calculateTotalCost": {
+      "post": {
+        "tags": [
+          "CarExtras"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CarExtras"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CarExtras"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CarExtras"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CarExtras": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "panRoof": {
+            "type": "boolean"
+          },
+          "panRoofPrice": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "upgradedAlloys": {
+            "type": "boolean"
+          },
+          "upgradedAlloysPrice": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "heatedSeats": {
+            "type": "boolean"
+          },
+          "heatedSeatsPrice": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "parkAssist": {
+            "type": "boolean"
+          },
+          "parkAssistPrice": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "laneAssist": {
+            "type": "boolean"
+          },
+          "laneAssistPrice": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cupHolders": {
+            "type": "boolean"
+          },
+          "cupHoldersPrice": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "navigationSystem": {
+            "type": "boolean"
+          },
+          "navigationSystemPrice": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "premiumSoundSystem": {
+            "type": "boolean"
+          },
+          "premiumSoundSystemPrice": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "wirelessCharging": {
+            "type": "boolean"
+          },
+          "wirelessChargingPrice": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "remoteStart": {
+            "type": "boolean"
+          },
+          "remoteStartPrice": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "adaptiveCruiseControl": {
+            "type": "boolean"
+          },
+          "adaptiveCruiseControlPrice": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "blindSpotMonitoring": {
+            "type": "boolean"
+          },
+          "blindSpotMonitoringPrice": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "keylessEntry": {
+            "type": "boolean"
+          },
+          "keylessEntryPrice": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "autoDimmingMirrors": {
+            "type": "boolean"
+          },
+          "autoDimmingMirrorsPrice": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "powerLiftgate": {
+            "type": "boolean"
+          },
+          "powerLiftgatePrice": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cameraSystem360": {
+            "type": "boolean"
+          },
+          "cameraSystem360Price": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "trafficSignRecognition": {
+            "type": "boolean"
+          },
+          "trafficSignRecognitionPrice": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "driverAssistancePackage": {
+            "type": "boolean"
+          },
+          "driverAssistancePackagePrice": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "memorySeats": {
+            "type": "boolean"
+          },
+          "memorySeatsPrice": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "heatedSteeringWheel": {
+            "type": "boolean"
+          },
+          "heatedSteeringWheelPrice": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ventilatedSeats": {
+            "type": "boolean"
+          },
+          "ventilatedSeatsPrice": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginModel": {
+        "required": [
+          "password",
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "password": {
+            "minLength": 1,
+            "type": "string",
+            "format": "password"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegisterModel": {
+        "required": [
+          "password",
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          },
+          "password": {
+            "minLength": 8,
+            "type": "string",
+            "format": "password"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

@@ -60,7 +60,7 @@ const CarExtras = () => {
   };
 
   const createNewCarExtra = () => {
-    const defaultCarExtra: CarExtra = Object.keys(extras[0]).reduce(
+    const defaultCarExtra: CarExtra = Object.keys(extras[0] || {}).reduce(
       (acc, key) => {
         if (key !== "id") {
           acc[key] = key.endsWith("Price") ? 0 : true;

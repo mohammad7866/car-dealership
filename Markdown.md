@@ -1,5 +1,0 @@
-[Link to Kanban Board](https://trello.com/b/jSGVccUv/kanban-board)
-![UML Diagram](https://trello.com/1/cards/65f0fffa0203e284aa73351b/attachments/65f10018bbf489ac51cde135/download/UML1.png)
-![UML Diagram](https://trello.com/1/cards/65f1007afef7beb7d92b4669/attachments/65f10082b227681e5000dcb5/previews/65f10083b227681e5000dcf7/download/UML2.png)
-![UML Diagram](https://trello.com/1/cards/65f1008d8f267daf75f001bc/attachments/65f100981588879ce9475ac7/previews/65f100991588879ce9475c08/download/UML3.png)
-![UML Diagram](https://trello.com/1/cards/65f1008f16a27d0ac2d41302/attachments/65f100a37003c5bd2424df4d/previews/65f100a47003c5bd2424e0db/download/UML4.png)

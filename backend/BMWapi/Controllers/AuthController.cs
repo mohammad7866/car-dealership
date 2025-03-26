@@ -20,6 +20,7 @@ namespace BMWApi.Controllers
         {
             if (!ModelState.IsValid)
             {
+                // ASP.NET Core will automatically handle this and return a 400 with details
                 return BadRequest(ModelState);
             }
 
