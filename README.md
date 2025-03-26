@@ -13,6 +13,7 @@
     1.[Performance](#performance)
     1.[Scalability](#scalability)
     1.[Robustness](#robustness)
+    1.[Security](#security)
     1.[Deployment](#deployment)
 1. [Project prerequisites](#project-prerequisites)
 1. [Cloning Instructions](#cloning-instructions)
