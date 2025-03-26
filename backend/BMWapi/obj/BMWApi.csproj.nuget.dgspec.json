@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mkhasiya001\\Documents\\GitHub\\part-b-mvp-of-a-full-stack-solution-60-mohammad7866\\backend\\BMWapi\\BMWApi.csproj": {}
+    "C:\\Users\\mkhasiya001\\Documents\\GitHub\\car-dealership\\backend\\BMWapi\\BMWApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mkhasiya001\\Documents\\GitHub\\part-b-mvp-of-a-full-stack-solution-60-mohammad7866\\backend\\BMWapi\\BMWApi.csproj": {
+    "C:\\Users\\mkhasiya001\\Documents\\GitHub\\car-dealership\\backend\\BMWapi\\BMWApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mkhasiya001\\Documents\\GitHub\\part-b-mvp-of-a-full-stack-solution-60-mohammad7866\\backend\\BMWapi\\BMWApi.csproj",
+        "projectUniqueName": "C:\\Users\\mkhasiya001\\Documents\\GitHub\\car-dealership\\backend\\BMWapi\\BMWApi.csproj",
         "projectName": "BMWApi",
-        "projectPath": "C:\\Users\\mkhasiya001\\Documents\\GitHub\\part-b-mvp-of-a-full-stack-solution-60-mohammad7866\\backend\\BMWapi\\BMWApi.csproj",
+        "projectPath": "C:\\Users\\mkhasiya001\\Documents\\GitHub\\car-dealership\\backend\\BMWapi\\BMWApi.csproj",
         "packagesPath": "C:\\Users\\mkhasiya001\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mkhasiya001\\Documents\\GitHub\\part-b-mvp-of-a-full-stack-solution-60-mohammad7866\\backend\\BMWapi\\obj\\",
+        "outputPath": "C:\\Users\\mkhasiya001\\Documents\\GitHub\\car-dealership\\backend\\BMWapi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -260,3 +260,23 @@ For setup, please see the [frontend](src/frontend/README.md) and [backend](src/b
 - The repository will be cloned to your local machine.
 
 Then once cloned please see the [frontend](src/frontend/README.md) and [backend](src/backend/README.md) READMEs, which explain how to run the project locally, and the steps that should be taken to use it for development of a new asset.
+console.log("Project Setup Guide Loaded");
+console.log("Windows Setup Loaded");
+console.log("Microsoft Azure SQL Loaded");
+console.log("Node.js Loaded");
+console.log("C# and .NET SDK Loaded");
+console.log("Mac Setup Loaded");
+console.log("Homebrew Loaded");
+console.log("Node.js Loaded");
+console.log(".NET SDK (Optional) Loaded");
+console.log("Additional Notes Loaded");
+console.log("Enterprise Considerations Loaded");
+console.log("Performance Loaded");
+console.log("Scalability Loaded");
+console.log("Robustness Loaded");
+console.log("Security Loaded");
+console.log("Deployment Loaded");
+console.log("Cloning instructions Loaded");
+console.log("Setting up SSH Keys Loaded");
+console.log("Using SSH Loaded");
+console.log("Using HTTPS Loaded");

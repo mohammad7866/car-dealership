@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9/vZ7ZYpKeU=",
+  "dgSpecHash": "8eG3H3XsyW4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\mkhasiya001\\Documents\\GitHub\\part-b-mvp-of-a-full-stack-solution-60-mohammad7866\\backend\\BMWapi\\BMWApi.csproj",
+  "projectFilePath": "C:\\Users\\mkhasiya001\\Documents\\GitHub\\car-dealership\\backend\\BMWapi\\BMWApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mkhasiya001\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\mkhasiya001\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
